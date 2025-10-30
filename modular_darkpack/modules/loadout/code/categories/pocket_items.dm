@@ -68,18 +68,18 @@
 /datum/loadout_item/general/pride
 	name = "Pride Pin"
 	item_path = /obj/item/clothing/accessory/pride
-	can_be_reskinned = TRUE
+	loadout_flags = LOADOUT_FLAG_ALLOW_RESKIN
 
 /datum/loadout_item/general/flashlight
-    name = "Flashlight"
-    item_path = /obj/item/flashlight
+	name = "Flashlight"
+	item_path = /obj/item/flashlight
 
 /*
 /datum/loadout_item/general/phone
-    name = "Phone"
-    item_path = /obj/item/vamp/phone
+	name = "Phone"
+	item_path = /obj/item/vamp/phone
 
 /datum/loadout_item/general/wristwatch
-    name = "Wrist watch"
-    item_path = /obj/item/cockclock
+	name = "Wrist watch"
+	item_path = /obj/item/cockclock
 */

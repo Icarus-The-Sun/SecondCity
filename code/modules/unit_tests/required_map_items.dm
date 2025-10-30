@@ -12,7 +12,7 @@
 /// Used to fill the expected types list with all the types we look for on the map.
 /// This list will just be full of typepaths that we expect.
 /// More detailed information about each item (mainly, how much of each should exist) is set on a per item basis
-/datum/unit_test/rmaptest_required_map_items/proc/setup_expected_types()
+/datum/unit_test/maptest_required_map_items/proc/setup_expected_types()
 	expected_types += /obj/item/blood_hunt
 	// DARKPACK EDIT REMOVAL START
 	// expected_types += subtypesof(/obj/item/stamp/head)

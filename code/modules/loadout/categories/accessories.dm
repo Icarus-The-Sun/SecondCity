@@ -83,6 +83,5 @@
 /datum/loadout_item/accessory/pride
 	name = "Pride Pin"
 	item_path = /obj/item/clothing/accessory/pride
-	can_be_reskinned = TRUE
 	loadout_flags = LOADOUT_FLAG_ALLOW_RESKIN
 */ // DARKPACK EDIT REMOVAL END - Loadout categories
