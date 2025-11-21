@@ -1,4 +1,0 @@
-author: "Eli-Hodges"
-delete-after: True
-changes:
-  - bugfix: "runtime from elevator wire cutting"
