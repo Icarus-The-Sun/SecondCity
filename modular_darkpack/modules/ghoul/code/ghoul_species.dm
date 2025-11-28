@@ -2,6 +2,7 @@
 	name = "Ghoul"
 	plural_form = "Ghouls"
 	id = SPECIES_GHOUL
+	changesource_flags = MIRROR_BADMIN
 
 /mob/living/carbon/human/species/ghoul
 	race = /datum/species/human/ghoul
