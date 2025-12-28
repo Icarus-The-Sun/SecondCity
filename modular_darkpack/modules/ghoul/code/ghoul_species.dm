@@ -2,6 +2,11 @@
 	name = "Ghoul"
 	plural_form = "Ghouls"
 	id = SPECIES_GHOUL
+	// DARKPACK EDIT ADD START - Adds Virus Resistance to Ghouls to lower their chances of getting diseases and slow their progression.
+	inherent_traits = list(
+		TRAIT_VIRUS_RESISTANCE,
+	)
+	// DARKPACK EDIT ADD END
 	changesource_flags = MIRROR_BADMIN
 	generation = GHOUL_GENERATION
 
