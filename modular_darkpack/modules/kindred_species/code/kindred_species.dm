@@ -29,7 +29,10 @@
 		TRAIT_VTM_CLANS,
 		TRAIT_UNAGING,
 		TRAIT_NO_DNA_COPY,
-		TRAIT_DRINKS_BLOOD
+		TRAIT_DRINKS_BLOOD,
+		// DARKPACK EDIT ADD START - Adds VIRUSIMMUNE to kindred so they can't develop viruses.
+		TRAIT_VIRUSIMMUNE,
+		// DARKPACK EDIT ADD END
 	)
 	inherent_biotypes = MOB_UNDEAD | MOB_HUMANOID
 	changesource_flags = MIRROR_BADMIN
