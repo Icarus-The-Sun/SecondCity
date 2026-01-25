@@ -847,7 +847,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	chem_volume = 65
 	list_reagents = list(/datum/reagent/drug/nicotine = 45)
 	choke_time_max = 40 SECONDS
-	lung_harm = 2
+	lung_harm = 0.1 //DARKPACK EDIT CHANGE - ORIGINAL: lung_harm = 2
 
 /obj/item/cigarette/dart/Initialize(mapload)
 	. = ..()
