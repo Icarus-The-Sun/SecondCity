@@ -130,8 +130,17 @@
 		bypass_roll = new()
 		bypass_roll.bumper_text = "persuade guard"
 
-	if(bypass_roll.applicable_stats == STAT_INTIMIDATION && (HAS_TRAIT(user, TRAIT_BRUISER)))
+	if(bypass_roll.applicable_stats == STAT_INTIMIDATION && (HAS_TRAIT(user, TRAIT_BRUISER)))//MAKE SURE THIS WORDS
 		social_roll_difficulty -= 1
+
+	if(HAS_TRAIT(user, TRAIT_ENCHANTING_VOICE))
+		social_roll_difficulty -= 2
+
+	if(HAS_TRAIT(user, TRAIT_GRAVE_SMELL))
+		social_roll_difficulty += 1
+
+	if(HAS_TRAIT(user, TRAIT_DISFIGURED_APPEARANCE))
+		social_roll_difficulty += 2
 
 	var/verbage
 	bypass_roll.difficulty = involved_social_roll

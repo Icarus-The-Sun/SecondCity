@@ -175,5 +175,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_GRAVE_SMELL "grave_smell"
 #define TRAIT_DISFIGURED_APPEARANCE "disfigured_appearance"
 #define TRAIT_BRUISER "bruiser"
+#define TRAIT_ENCHANTING_VOICE "enchanting_voice"
 
 // END TRAIT DEFINES

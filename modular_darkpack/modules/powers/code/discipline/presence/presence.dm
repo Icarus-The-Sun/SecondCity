@@ -38,6 +38,9 @@
 	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
 		theirpower += 1
 
+	if(HAS_TRAIT(owner, TRAIT_ENCHANTING_VOICE))
+		theirpower -= 2
+
 	//botch
 	if(successes < 0)
 		ADD_TRAIT(target, TRAIT_PRESENCE_IMMUNE, TRAIT_GENERIC)

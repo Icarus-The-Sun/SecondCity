@@ -117,11 +117,14 @@
 	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))
 		theirpower += 2
 
-	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
+	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL) && (!get_kindred_splat(target)))
 		theirpower += 1
 
 	if(HAS_TRAIT(owner, TRAIT_BRUISER) && owner_stat == STAT_INTIMIDATION)
 		theirpower -= 1
+
+	if(HAS_TRAIT(owner, TRAIT_ENCHANTING_VOICE))
+		theirpower -= 2
 
 	//wearing dark sunglasses makes it harder for the Dominator to capture the victim's gaze and raises difficulty -- V20 'Dominate' section titled 'Eye Contact'
 	var/total_tint = 0
