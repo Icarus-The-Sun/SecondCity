@@ -88,7 +88,7 @@
 
 		var/datum/storyteller_roll/climbing/climb_roll = new()
 		if(HAS_TRAIT (user, TRAIT_CATLIKE_GRACE))
-			climb_roll.difficulty -= 2
+			climb_roll.difficulty -= 2 // Easier climbing
 		var/roll = climb_roll.st_roll(user, src)
 		switch(roll)
 			if(ROLL_BOTCH)

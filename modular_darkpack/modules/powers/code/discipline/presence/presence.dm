@@ -32,14 +32,14 @@
 
 	var/successes = SSroll.storyteller_roll(owner_stat, difficulty = theirpower, roller = owner, numerical = TRUE)
 
+	if(HAS_TRAIT(owner, TRAIT_ENCHANTING_VOICE))
+		theirpower -= 2
+
 	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))
 		theirpower += 2
 
-	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
+	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL) && (!get_kindred_splat(target))) // -1 to Mortal Social Rolls
 		theirpower += 1
-
-	if(HAS_TRAIT(owner, TRAIT_ENCHANTING_VOICE))
-		theirpower -= 2
 
 	//botch
 	if(successes < 0)
@@ -95,14 +95,7 @@
 	.=..()
 
 	//charisma + performance
-	var/awe_diff = 7
-	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))
-		awe_diff += 2
-
-	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
-		awe_diff += 1
-
-	successes = SSroll.storyteller_roll(owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_PERFORMANCE), awe_diff, roller = owner, numerical = TRUE)
+	successes = SSroll.storyteller_roll(owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_PERFORMANCE), difficulty = 7, roller = owner, numerical = TRUE)
 	if(successes > 0)
 		return TRUE
 
@@ -166,17 +159,7 @@
 /datum/discipline_power/presence/dread_gaze/pre_activation_checks(mob/living/target)
 
 	//charisma + intimidation, difficulty equal to the victims wits + courage
-	var/dread_diff = (target.st_get_stat(STAT_WITS) + target.st_get_stat(STAT_COURAGE))
-	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))
-		dread_diff += 2
-
-	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
-		dread_diff += 1
-
-	if(HAS_TRAIT(owner, TRAIT_BRUISER))
-		dread_diff -= 1
-
-	successes = presence_check(owner, target, owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_INTIMIDATION), dread_diff)
+	successes = presence_check(owner, target, owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_INTIMIDATION), difficulty = (target.st_get_stat(STAT_WITS) + target.st_get_stat(STAT_COURAGE)))
 	if(successes > 0)
 		return TRUE
 
@@ -219,15 +202,7 @@
 
 /datum/discipline_power/presence/entrancement/pre_activation_checks(mob/living/target)
 
-	var/entracement_diff = (owner.st_get_stat(STAT_APPEARANCE) + owner.st_get_stat(STAT_EMPATHY))
-
-	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))
-		entracement_diff += 2
-
-	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
-		entracement_diff += 1
-
-	successes = presence_check(owner, target, entracement_diff)
+	successes = presence_check(owner, target, owner.st_get_stat(STAT_APPEARANCE) + owner.st_get_stat(STAT_EMPATHY))
 	if(successes > 0)
 		return TRUE
 
@@ -286,14 +261,7 @@
 
 	//this ability has a difficulty of 4 or 5 or something for people the summoner has met, and 8 for those they've only met briefly.
 	//i thought that was too low and the ability for the misuse of this disc caused me to raise it to 7 difficulty
-	var/summon_diff = 7
-	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))
-		summon_diff += 2
-
-	if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
-		summon_diff += 1
-
-	successes = presence_check(owner, summon_target, owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_SUBTERFUGE), summon_diff)
+	successes = presence_check(owner, summon_target, owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_SUBTERFUGE), 7)
 	if(successes > 0)
 		return TRUE
 
@@ -357,15 +325,7 @@
 			continue
 
 		//'the victim must make a courage roll with a difficulty equal to the caster's charisma + intimidation to a maximum of 10'
-		var/majesty_diff = owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_INTIMIDATION)
-
-		if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))
-			majesty_diff += 2
-
-		if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL))
-			majesty_diff += 1
-
-		var/hearer_successes = SSroll.storyteller_roll(hearer.st_get_stat(STAT_COURAGE), majesty_diff, roller = hearer, numerical = TRUE)
+		var/hearer_successes = SSroll.storyteller_roll(hearer.st_get_stat(STAT_COURAGE), difficulty = owner.st_get_stat(STAT_CHARISMA) + owner.st_get_stat(STAT_INTIMIDATION), roller = hearer, numerical = TRUE)
 		hearer_successes = max(0, hearer_successes)
 
 		apply_presence_overlay(hearer, 3 MINUTES)

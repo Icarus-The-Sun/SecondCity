@@ -134,8 +134,6 @@
 	if(!fear_of_the_void_below_roll)
 		fear_of_the_void_below_roll = new()
 	fear_of_the_void_below_roll.difficulty = target.st_get_stat(STAT_COURAGE) + 4
-	if(HAS_TRAIT(owner, TRAIT_BRUISER)) // Intimidation bonus
-		fear_of_the_void_below_roll.difficulty -= 1
 	var/roll = fear_of_the_void_below_roll.st_roll(owner, target)
 	if(roll != ROLL_SUCCESS)
 		to_chat(owner, span_warning("[target] has too much willpower to induce fear into them!"))

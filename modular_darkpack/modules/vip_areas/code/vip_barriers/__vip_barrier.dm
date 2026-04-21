@@ -136,7 +136,7 @@
 	if(HAS_TRAIT(user, TRAIT_ENCHANTING_VOICE))
 		social_roll_difficulty -= 2
 
-	if(HAS_TRAIT(user, TRAIT_GRAVE_SMELL))
+	if(HAS_TRAIT(user, TRAIT_GRAVE_SMELL) && (!get_kindred_splat(bouncer)))
 		social_roll_difficulty += 1
 
 	if(HAS_TRAIT(user, TRAIT_DISFIGURED_APPEARANCE))
