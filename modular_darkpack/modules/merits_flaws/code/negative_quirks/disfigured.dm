@@ -15,7 +15,5 @@
 	. = ..()
 	if(ishuman(new_holder))
 		if(new_holder.st_get_stat(STAT_APPEARANCE) > 2)
-			human_holder.st_add_stat_mod(STAT_APPEARANCE, -(STAT_APPEARANCE+2), "Disfigured")
-			//human_holder.st_add_stat_mod(stat, -1, "Disfigured")//Test!!!! 4-(4+3)=1
-
-					//owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) - 1)
+			new_holder.st_set_stat(STAT_APPEARANCE, 2) // See if this works
+			to_chat(new_holder, span_warning ("You realize you aren't that good looking."))

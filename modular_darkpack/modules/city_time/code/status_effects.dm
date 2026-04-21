@@ -42,6 +42,11 @@
 			if(HAS_TRAIT(owner, TRAIT_LIGHT_WEAKNESS))
 				owner.apply_damage(2 TTRPG_DAMAGE, BURN)
 			return TRUE
+		if(owner.visible_to_sky() && get_ghoul_splat(owner))
+			if(HAS_TRAIT(owner, TRAIT_LIGHT_WEAKNESS))
+				owner.apply_damage(0.5 TTRPG_DAMAGE, BURN)
+			if(HAS_TRAIT(owner, TRAIT_LIGHT_WEAKNESS_WEAK))
+				owner.apply_damage(0.2 TTRPG_DAMAGE, BURN)
 	qdel(src)
 
 
