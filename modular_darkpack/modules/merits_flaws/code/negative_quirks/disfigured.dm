@@ -15,7 +15,7 @@
 	. = ..()
 	if(ishuman(new_holder))
 		if(new_holder.st_get_stat(STAT_APPEARANCE) > 2)
-			new_holder.st_add_stat_mod(STAT_APPEARANCE, ((STAT_APPEARANCE - STAT_APPEARANCE)+2))
+			new_holder.st_add_stat_mod(STAT_APPEARANCE, ((new_holder.st_get_stat(STAT_APPEARANCE) - new_holder.st_get_stat(STAT_APPEARANCE)-2)))
 			//human_holder.st_add_stat_mod(stat, -1, "Disfigured")//Test!!!!
 
 					//owner.st_set_stat(STAT_TEMPORARY_WILLPOWER, owner.st_get_stat(STAT_TEMPORARY_WILLPOWER) - 1)
