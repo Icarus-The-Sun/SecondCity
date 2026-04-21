@@ -130,6 +130,9 @@
 		bypass_roll = new()
 		bypass_roll.bumper_text = "persuade guard"
 
+	if(bypass_roll.applicable_stats == STAT_INTIMIDATION && (HAS_TRAIT(user, TRAIT_BRUISER)))
+		social_roll_difficulty -= 1
+
 	var/verbage
 	bypass_roll.difficulty = involved_social_roll
 	bypass_roll.applicable_stats = list(STAT_CHARISMA)

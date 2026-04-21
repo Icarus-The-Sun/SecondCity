@@ -430,6 +430,10 @@ determines the duration.
 
 /datum/discipline_power/dementation/total_insanity/pre_activation_checks(mob/living/carbon/human/target)
 	theirpower = target.st_get_stat(STAT_TEMPORARY_WILLPOWER)
+	if(HAS_TRAIT(owner, TRAIT_BRUISER)) // Bruisers get -1 to their difficulties on intimidation
+		theirpower -= 1
+	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE)) // Disfigured people get +2 diff to social rolls
+		theirpower += 2
 	mypower = SSroll.storyteller_roll(owner.st_get_stat(STAT_MANIPULATION) + owner.st_get_stat(STAT_INTIMIDATION), theirpower, owner, numerical = TRUE)
 	if(mypower <= 0)
 		to_chat(owner, span_warning("[target]'s mind is too powerful to corrupt!"))
