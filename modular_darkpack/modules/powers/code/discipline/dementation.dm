@@ -432,6 +432,8 @@ determines the duration.
 	theirpower = target.st_get_stat(STAT_TEMPORARY_WILLPOWER)
 	if(HAS_TRAIT(owner, TRAIT_BRUISER)) // Bruisers get -1 to their difficulties on intimidation
 		theirpower -= 1
+	if(HAS_TRAIT(owner, TRAIT_GLOWING_EYES) && ((!get_kindred_splat(target)) && (!get_shifter_splat(target))))
+		theirpower -= 1
 	if(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE)) // Disfigured people get +2 diff to social rolls
 		theirpower += 2
 	mypower = SSroll.storyteller_roll(owner.st_get_stat(STAT_MANIPULATION) + owner.st_get_stat(STAT_INTIMIDATION), theirpower, owner, numerical = TRUE)

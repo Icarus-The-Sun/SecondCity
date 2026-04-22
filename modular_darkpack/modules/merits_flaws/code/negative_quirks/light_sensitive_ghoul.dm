@@ -1,4 +1,4 @@
-// VTM pg. 495
+// VTM Ghouls and Revenants pg. 135-136
 /datum/quirk/darkpack/light_sensitive_ghoul
 	name = "Light Sensitive (Ghoul)"
 	desc = {"You find yourself more sensitive to bright lights than other ghouls.

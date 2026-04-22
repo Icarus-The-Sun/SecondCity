@@ -177,5 +177,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_BRUISER "bruiser"
 #define TRAIT_ENCHANTING_VOICE "enchanting_voice"
 #define TRAIT_LIGHT_WEAKNESS_WEAK "weak_light_weakness"
+#define TRAIT_GLOWING_EYES "glowing_eyes"
 
 // END TRAIT DEFINES

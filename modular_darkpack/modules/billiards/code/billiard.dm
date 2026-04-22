@@ -143,6 +143,8 @@
 		user.visible_message(span_notice("[user] strikes a [lowertext(choice)]!"), span_notice("You strike your target!"))
 		playsound(src, 'modular_darkpack/modules/billiards/sounds/poolball_strike.ogg', 75)
 
+	if(HAS_TRAIT(user, TRAIT_))
+
 		var/datum/storyteller_roll/pool_aiming/accuracy_roll = new()
 		var/accuracy_result = accuracy_roll.st_roll(user, src)
 		var/datum/storyteller_roll/pool_hits/amount_to_hit_roll = new()
