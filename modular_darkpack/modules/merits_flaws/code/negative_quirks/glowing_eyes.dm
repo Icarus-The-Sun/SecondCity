@@ -2,7 +2,7 @@
 /datum/quirk/darkpack/glowing_eyes
 	name = "Glowing Eyes"
 	desc = {"You have the stereotypical glowing eyes of vampire legend, which gives you a -1 difficulty on Intimidation rolls when you're dealing with mortals.
-		However, the tradeoffs are many; you must constantly disguise your condition;
+		However, the tradeoffs are many; you MUST constantly disguise your condition;
 		the glow impairs your vision and puts you at +1 difficulty on all sightbased rolls (including the use of ranged weapons);
 		and the radiance emanating from your eye sockets makes it difficult to hide (+2 difficulty to Stealth rolls)."}
 	icon = FA_ICON_EYE
@@ -25,14 +25,10 @@ the radiance emanating from your eye sockets makes
 it difficult to hide (+2 difficulty to Stealth rolls) in the
 dark.*/
 
-/datum/quirk/darkpack/glowing_eyes/add(client/client_source)
-	ADD_TRAIT(new_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
-	ADD_TRAIT(new_holder, TRAIT_LUMINESCENT_EYES, QUIRK_TRAIT)
+/datum/quirk/darkpack/glowing_eyes/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique, announce)
+	ADD_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
+	ADD_TRAIT(quirk_holder, TRAIT_LUMINESCENT_EYES, QUIRK_TRAIT)
 
-/datum/quirk/darkpack/glowing_eyes/add_unique(client/client_source)
-	var/obj/item/clothing/glasses/vampire/sun/new_glasses = obj/item/clothing/glasses/vampire/sun
-	give_item_to_holder(new_glasses, list(LOCATION_EYES, LOCATION_HANDS))// Glasses when we spawn in, so we can hide our eyes.
-
-/datum/quirk/darkpack/glowing_eyes/remove()
-	REMOVE_TRAIT(new_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
-	REMOVE_TRAIT(new_holder, TRAIT_LUMINESCENT_EYES, QUIRK_TRAIT)
+/datum/quirk/darkpack/glowing_eyes/remove_from_current_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique, announce)
+	REMOVE_TRAIT(quirk_holder, TRAIT_MASQUERADE_VIOLATING_EYES, QUIRK_TRAIT)
+	REMOVE_TRAIT(quirk_holder, TRAIT_LUMINESCENT_EYES, QUIRK_TRAIT)

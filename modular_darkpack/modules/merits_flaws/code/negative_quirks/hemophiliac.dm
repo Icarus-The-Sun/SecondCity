@@ -8,8 +8,8 @@ If your skin is cut, you will not stop bleeding without medical assistance."}
 	gain_text = span_notice("You feel like bleeding is a lot more dangerous.")
 	lose_text = span_notice("You feel like bleeding's a lot safer now. Whew!")
 	failure_message = span_notice("You don't bleed as much as you thought.")
-	mob_trait = TRAIT_BLOOD_FOUNTAIN // Easier to bleed, worse bleeding when they do.
-	forbidden_splats = list(SPLAT_KINDRED, SPLAT_SHIFTERS) // Kinfolk, humans, and ghouls can take this.
+	mob_trait = TRAIT_BLOOD_FOUNTAIN // Worse bleeding when they do bleed.
+	forbidden_splats = list(SPLAT_KINDRED, SPLAT_SHIFTERS) // Kinfolk, humans, and ghouls can take this. Debate adding Garou/Corax to it?
 
 /*Your character suffers from hemophilia. If your ghoul’s
 skin is cut, you will not stop bleeding without medical
@@ -23,8 +23,8 @@ the bleeding. Any vampire who bites a Hemophiliac may
 ghoul, the vampire will put a stop to any future bashing
 damage.*/
 
-/datum/quirk/darkpack/hemophiliac/add(client/client_source)
-	ADD_TRAIT(new_holder, TRAIT_EASYBLEED , QUIRK_TRAIT)
+/datum/quirk/darkpack/hemophiliac/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique, announce)
+	ADD_TRAIT(quirk_holder, TRAIT_EASYBLEED , QUIRK_TRAIT) // Easier to make bleed
 
-/datum/quirk/darkpack/hemophiliac/remove()
-	REMOVE_TRAIT(new_holder, TRAIT_EASYBLEED , QUIRK_TRAIT)
+/datum/quirk/darkpack/hemophiliac/remove_from_current_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique, announce)
+	REMOVE_TRAIT(quirk_holder, TRAIT_EASYBLEED , QUIRK_TRAIT)

@@ -133,8 +133,8 @@
 	if(bypass_roll.applicable_stats == STAT_INTIMIDATION && (HAS_TRAIT(user, TRAIT_BRUISER)))//MAKE SURE THIS WORDS
 		social_roll_difficulty -= 1
 
-	if(HAS_TRAIT(user, TRAIT_GLOWING_EYES) && (!get_kindred_splat(bouncer)))
-		social_roll_difficulty -= 1
+	if(bypass_roll.applicable_stats == STAT_INTIMIDATION && (HAS_TRAIT(user, TRAIT_GLOWING_EYES) && (!get_kindred_splat(bouncer))))
+		social_roll_difficulty -= 1 // Glowing eyes gives an easier time intimidating mortals
 
 	if(HAS_TRAIT(user, TRAIT_ENCHANTING_VOICE))
 		social_roll_difficulty -= 2

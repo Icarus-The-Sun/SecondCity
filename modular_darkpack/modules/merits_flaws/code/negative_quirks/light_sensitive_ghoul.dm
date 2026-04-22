@@ -12,7 +12,7 @@ Among ghouls feeding from certain clans and bloodlines, this flaw can worsen ove
 	allowed_splats = list(SPLAT_GHOUL, SPLAT_KINDRED)
 
 
-/datum/quirk/darkpack/light_severity/add(client/client_source)
+/datum/quirk/darkpack/light_severity/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique, announce)
 	var/quirk_value
 	value = quirk_value
 	var/light_severity = client_source?.prefs.read_preference(/datum/preference/choiced/light_severity)
@@ -34,10 +34,9 @@ Among ghouls feeding from certain clans and bloodlines, this flaw can worsen ove
 			mob_trait = TRAIT_LIGHT_WEAKNESS
 			target_eyes.flash_protect = max(target_eyes.flash_protect - 2, FLASH_PROTECTION_HYPER_SENSITIVE) // Even worse with light
 
-/datum/quirk/darkpack/light_severity/remove(client/client_source)
+/datum/quirk/darkpack/light_severity/remove_from_current_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique, announce)
 	var/obj/item/organ/eyes/target_eyes = quirk_holder.get_organ_slot(ORGAN_SLOT_EYES)
 	if(istype(target_eyes))
-		var/obj/item/organ/eyes/target_eyes = quirk_holder.get_organ_slot(ORGAN_SLOT_EYES)
 		target_eyes.flash_protect = initial(target_eyes.flash_protect)
 
 /datum/quirk_constant_data/light_sensitive
