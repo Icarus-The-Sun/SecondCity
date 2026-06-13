@@ -18,3 +18,8 @@ export const missing_arm: FeatureChoiced = {
   name: 'Missing Arm',
   component: FeatureDropdownInput,
 };
+
+export const acute_sense: FeatureChoiced = {
+  name: 'Acute Sense',
+  component: FeatureDropdownInput,
+};
